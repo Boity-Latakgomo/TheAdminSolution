@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="TheAdminSolution.Views.EmployeeTasksDialog">
+
+    <StackLayout HorizontalOptions="FillAndExpand">
+        <Image Source="icon_cancel.png"
+               HeightRequest="36"
+               HorizontalOptions="End">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Frame Margin="18, 0"
+               Padding="8"
+               HorizontalOptions="FillAndExpand"
+               BackgroundColor="White"
+               CornerRadius="10">
+            <StackLayout HorizontalOptions="FillAndExpand">
+                <Label Text="Task"
+                       Margin="0, 0, 0, 0"
+                       TextColor="Black"
+                        HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"
+                       FontSize="24"/>
+                <BoxView Color="Gray"
+                         HeightRequest="1"
+                         Margin="8, 0"/>
+                <Label Text="{Binding EmployeeTask.Title}"
+                       LineBreakMode="TailTruncation"
+                       Margin="0, 0, 8, 0"
+                       TextColor="Black"
+                       FontAttributes="Bold"/>
+                <Label Text="{Binding EmployeeTask.Details}"
+                       Margin="0, 0, 8, 0"/>
+                <Label Text="-------------------------------------------------------------------------"
+                       Opacity="0"/>
+                <BoxView Color="#B02079"
+                         HeightRequest="1"
+                         Margin="50, 0"/>
+                <Button Text="Delete"
+                        CornerRadius="10"
+                        HorizontalOptions="CenterAndExpand"
+                        Padding="8, 2"
+                        BackgroundColor="#B02079"
+                        TextColor="White"
+                        Command="{Binding DeleteCommand}"/>
+            </StackLayout>
+        </Frame>
+
+
+    </StackLayout>
+
+
+</StackLayout>

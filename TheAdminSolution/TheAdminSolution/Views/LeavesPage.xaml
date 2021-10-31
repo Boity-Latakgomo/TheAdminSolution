@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="TheAdminSolution.Views.LeavesPage"
+             Title="Leaves">
+
+    <ListView ItemsSource="{Binding Leaves}"
+              ItemSelected="ListView_ItemSelected"
+              HasUnevenRows="True"
+              SeparatorVisibility="None">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Frame Margin="8, 4"
+                           HasShadow="True"
+                           BackgroundColor="#E4DEED"
+                           CornerRadius="5"
+                           Padding="0">
+                        <StackLayout>
+                            <Label 
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center"
+                               Margin="8, 8, 8, 0"
+                               FontAttributes="Bold">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding Email}"/>
+                                        <Span Text=" "/>
+                                        <Span Text="{Binding ReasonForLeave, StringFormat='({0})'}"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label HorizontalOptions="EndAndExpand"
+                                   Margin="8"
+                                   FontSize="11">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding StartDate}"/>
+                                        <Span Text=" - "/>
+                                        <Span Text="{Binding EndDate}"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+                        
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+
+</ContentPage>

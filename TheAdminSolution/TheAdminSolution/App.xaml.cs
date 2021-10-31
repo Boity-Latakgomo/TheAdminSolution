@@ -19,7 +19,8 @@ namespace TheAdminSolution
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("LoginPage");
+            //await NavigationService.NavigateAsync("LoginPage");
+            await NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
@@ -29,6 +30,11 @@ namespace TheAdminSolution
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<MainPage, MainPageViewModel>();
             containerRegistry.RegisterForNavigation<LoginPage, LoginPageViewModel>();
+            containerRegistry.RegisterForNavigation<AddTaskPage, AddTaskPageViewModel>();
+            containerRegistry.RegisterForNavigation<TrackTasksPage, TrackTasksPageViewModel>();
+            containerRegistry.RegisterForNavigation<LeavesPage, LeavesPageViewModel>();
+            containerRegistry.RegisterDialog<ManageLeavesDialog, ManageLeavesDialogViewModel>();
+            containerRegistry.RegisterDialog<EmployeeTasksDialog, EmployeeTasksDialogViewModel>();
         }
     }
 }

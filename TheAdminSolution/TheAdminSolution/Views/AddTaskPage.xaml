@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="TheAdminSolution.Views.AddTaskPage"
+             Title="Add Task">
+
+    <Grid RowDefinitions="Auto, Auto, *, Auto"
+          Padding="8">
+        <Picker ItemsSource="{Binding Emails}"
+                SelectedIndex="{Binding SelectedEmailIndex}"
+                Title="Select Email"
+                TitleColor="#B02079"
+                TextColor="#B02079"/>
+        <Entry Grid.Row="1"
+               Text="{Binding Title}"
+               Placeholder="Enter Title"/>
+        <Editor Grid.Row="2"
+                Text="{Binding Details}"
+                Placeholder="Enter Details"/>
+        <Button Grid.Row="3"
+                Text="submit"
+                BackgroundColor="#B02079"
+                TextColor="#C7C7C7" 
+                Margin="30, 8, 30, 12"
+                CornerRadius="18"
+                Command="{Binding SubmitCommand}"/>
+    </Grid>
+</ContentPage>

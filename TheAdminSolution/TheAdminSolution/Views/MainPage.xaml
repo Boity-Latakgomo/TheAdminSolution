@@ -2,10 +2,90 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TheAdminSolution.Views.MainPage"
-             Title="{Binding Title}">
+             Title="Home">
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Xamarin Forms and Prism!" />
-    </StackLayout>
+    <NavigationPage.TitleView>
+        <Label Text="Home"
+               TextColor="#EFEFEF"
+               FontAttributes="Bold"
+               FontSize="20"/>
+    </NavigationPage.TitleView>
+
+    <ScrollView>
+        <StackLayout>
+            <Image Source="homepic.jpg"
+               Aspect="Fill"
+               HeightRequest="350"/>
+
+
+            <Grid HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand"
+                  ColumnDefinitions="*,*"
+                  RowDefinitions="Auto, Auto"
+                  Padding="8, -40">
+
+                <Frame HasShadow="True"
+                       x:Name="ApplyForAleave"
+                       BackgroundColor="#8569AF"
+                       Grid.Row="0"
+                       CornerRadius="10"
+                       Grid.Column="1"
+                       Padding="0, 30"
+                       Margin="8">
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                        <Image Source="addtask.png"/>
+                        <Label Text="Add Task"
+                               HorizontalTextAlignment="Center"
+                           TextColor="White"
+                           FontAttributes="Bold"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding AddTaskCommand}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame HasShadow="True"
+                       Grid.Row="0"
+                       CornerRadius="10"
+                       BackgroundColor="#8569AF"
+                       Grid.Column="0"
+                       Padding="0, 30"
+                       Margin="8">
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                        <Image Source="tracktasks.png"/>
+                        <Label Text="Track Tasks" 
+                               HorizontalTextAlignment="Center"
+                           TextColor="White"
+                           FontAttributes="Bold"/>
+                    </StackLayout>
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding TrackTasksCommand}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+                <Frame HasShadow="True"
+                       Grid.ColumnSpan="2"
+                       Grid.Row="1"
+                       Grid.Column="0"
+                       CornerRadius="10"
+                       Padding="0, 30"
+                       BackgroundColor="#8569AF"
+                       Margin="24, 8">
+                    <StackLayout HorizontalOptions="Center"
+                                 VerticalOptions="Center">
+                        <Image Source="leaves.png"/>
+                        <Label Text="Leaves"
+                               HorizontalTextAlignment="Center"
+                           TextColor="White"
+                           FontAttributes="Bold"/>
+                    </StackLayout>
+
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding LeavesCommand}"/>
+                    </Frame.GestureRecognizers>
+                </Frame>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
 
 </ContentPage>

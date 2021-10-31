@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<StackLayout xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="TheAdminSolution.Views.ManageLeavesDialog">
+    
+    <StackLayout>
+        <Image Source="icon_cancel"
+               HeightRequest="36"
+               HorizontalOptions="End">
+            <Image.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding CloseCommand}"/>
+            </Image.GestureRecognizers>
+        </Image>
+        <Frame Margin="18, 0"
+               Padding="8"
+               BackgroundColor="White"
+               CornerRadius="10">
+            <StackLayout>
+                <Label Text="Manage Leaves"
+                       Margin="0, 0, 130, 0"
+                       TextColor="Black"
+                       FontAttributes="Bold"
+                       FontSize="16"/>
+                <Label 
+                       Margin="0, 0, 8, 0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Email: "/>
+                            <Span Text="{Binding LeaveDetails.Email}" FontAttributes="Bold"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label 
+                       Margin="0, 0, 8, 0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Leave type: "/>
+                            <Span Text="{Binding LeaveDetails.LeaveType}" FontAttributes="Bold"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label 
+                       Margin="0, 0, 8, 0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Reason for leave: "/>
+                            <Span Text="{Binding LeaveDetails.ReasonForLeave}" FontAttributes="Bold"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label 
+                       Margin="0, 0, 8, 0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Start date: "/>
+                            <Span Text="{Binding LeaveDetails.StartDate}" FontAttributes="Bold"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                <Label 
+                       Margin="0, 0, 8, 0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="End date: "/>
+                            <Span Text="{Binding LeaveDetails.EndDate}" FontAttributes="Bold"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+                
+                <Picker ItemsSource="{Binding Status}"
+                SelectedIndex="{Binding SelectedEmailIndex}"
+                Title="Decision"
+                TitleColor="#B02079"
+                TextColor="#B02079"/>
+                
+                <Frame Margin="0"
+                       Padding="0"
+                       HasShadow="False"
+                       BorderColor="Gray"
+                       WidthRequest="1">
+                    <Editor Margin="0"
+                            VerticalOptions="Start"
+                            Placeholder="Enter a Comment"
+                            Text="{Binding CommentText}"
+                            HeightRequest="100"/>
+                </Frame>
+                <Button Text="Submit"
+                        CornerRadius="10"
+                        HorizontalOptions="CenterAndExpand"
+                        Padding="8, 2"
+                        BackgroundColor="#B02079"
+                        TextColor="White"
+                        Command="{Binding SubmitCommand}"/>
+            </StackLayout>
+        </Frame>
+
+
+    </StackLayout>
+
+</StackLayout>

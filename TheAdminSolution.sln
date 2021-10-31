@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheAdminSolution", "TheAdminSolution\TheAdminSolution\TheAdminSolution.csproj", "{B567265E-E8C9-49F2-87A1-0052E8928454}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TheAdminSolution", "TheAdminSolution\TheAdminSolution\TheAdminSolution.csproj", "{B567265E-E8C9-49F2-87A1-0052E8928454}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TheAdminSolution.Android", "TheAdminSolution\TheAdminSolution.Android\TheAdminSolution.Android.csproj", "{E102F91B-3A60-4FEC-B1ED-B59931A943FC}"
 EndProject

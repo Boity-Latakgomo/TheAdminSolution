@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="http://prismlibrary.com"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="TheAdminSolution.Views.TrackTasksPage"
+             Title="Track tasks">
+
+    <ListView ItemsSource="{Binding Tasks}"
+              ItemSelected="ListView_ItemSelected"
+              HasUnevenRows="True"
+              SeparatorVisibility="None">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <Frame Margin="8, 4"
+                           HasShadow="True"
+                           BackgroundColor="#E4DEED"
+                           CornerRadius="5"
+                           Padding="0">
+                        <StackLayout>
+                            <Label 
+                               HorizontalOptions="StartAndExpand"
+                               Margin="8, 8, 8, 0"
+                               FontAttributes="Bold"
+                                LineBreakMode="TailTruncation">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding Status, StringFormat='({0})'}"
+                                              TextColor="Green"/>
+                                        <Span Text=" "/>
+                                        <Span Text="{Binding Email}"
+                                              TextColor="Black"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                            <Label HorizontalOptions="StartAndExpand"
+                                   Margin="8"
+                                   LineBreakMode="TailTruncation">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding Title}"
+                                              FontSize="14"/>
+                                        <Span Text=" - "/>
+                                        <Span Text="{Binding Details}"/>
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
+                        </StackLayout>
+
+                    </Frame>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
