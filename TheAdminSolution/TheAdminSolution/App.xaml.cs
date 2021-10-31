@@ -19,8 +19,8 @@ namespace TheAdminSolution
         {
             InitializeComponent();
 
-            //await NavigationService.NavigateAsync("LoginPage");
-            await NavigationService.NavigateAsync("NavigationPage/MainPage");
+            await NavigationService.NavigateAsync("LoginPage");
+            //await NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)

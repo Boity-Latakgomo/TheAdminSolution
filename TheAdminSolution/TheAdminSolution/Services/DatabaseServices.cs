@@ -57,6 +57,52 @@ namespace TheAdminSolution.Services
               }).ToList();
         }
 
+        public async Task<List<Leaves>> GetAllAppliedLeaves()
+        {
+            return (await firebase
+             .Child("EmployeeSolution")
+            .Child("LeaveApplication")
+              .OnceAsync<Leaves>()).Select(item => new Leaves
+              {
+                  Leave = item.Object.Leave,
+                  Description = item.Object.Description,
+                  StartDate = item.Object.StartDate,
+                  EndDate = item.Object.EndDate,
+                  EmailUserID = item.Object.EmailUserID,
+                  Comment = item.Object.Comment,
+                  Email = item.Object.Email,
+                  LeaveID = item.Object.LeaveID,
+                  Status = item.Object.Status
+
+              }).ToList();
+        }
+
+        public async Task UpdateLeaves(Leaves status)
+        {
+            var toUpdateLeaves = (await firebase
+              .Child("EmployeeSolution")
+              .Child("LeaveApplication")
+              .OnceAsync<Leaves>()).Where(a => a.Object.LeaveID == status.LeaveID).FirstOrDefault();
+
+            await firebase
+              .Child("EmployeeSolution")
+              .Child("LeaveApplication")
+              .Child(toUpdateLeaves.Key)
+              .PutAsync<Leaves>(new Leaves()
+              {
+                  Email = status.Email,
+                  EmailUserID = status.EmailUserID,
+                  Leave = status.Leave,
+                  Description = status.Description,
+                  StartDate = status.StartDate,
+                  EndDate = status.EndDate,
+                  Status = status.Status,
+                  Comment = status.Comment,
+                  LeaveID = status.LeaveID
+
+              });
+        }
+
         public async Task<bool> AddTask(EmployeeTask employeeTask)
         {
             FirebaseObject<EmployeeTask> response = await firebase

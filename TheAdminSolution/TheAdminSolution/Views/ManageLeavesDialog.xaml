@@ -37,7 +37,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Leave type: "/>
-                            <Span Text="{Binding LeaveDetails.LeaveType}" FontAttributes="Bold"/>
+                            <Span Text="{Binding LeaveDetails.Leave}" FontAttributes="Bold"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -46,7 +46,7 @@
                     <Label.FormattedText>
                         <FormattedString>
                             <Span Text="Reason for leave: "/>
-                            <Span Text="{Binding LeaveDetails.ReasonForLeave}" FontAttributes="Bold"/>
+                            <Span Text="{Binding LeaveDetails.Description}" FontAttributes="Bold"/>
                         </FormattedString>
                     </Label.FormattedText>
                 </Label>
@@ -70,7 +70,7 @@
                 </Label>
                 
                 <Picker ItemsSource="{Binding Status}"
-                SelectedIndex="{Binding SelectedEmailIndex}"
+                SelectedIndex="{Binding SelectedStatusIndex}"
                 Title="Decision"
                 TitleColor="#B02079"
                 TextColor="#B02079"/>

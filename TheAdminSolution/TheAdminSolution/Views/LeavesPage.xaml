@@ -19,19 +19,24 @@
                            CornerRadius="5"
                            Padding="0">
                         <StackLayout>
-                            <Label 
-                               HorizontalOptions="Center"
-                               HorizontalTextAlignment="Center"
-                               Margin="8, 8, 8, 0"
-                               FontAttributes="Bold">
+                            <Label  Margin="8"
+                                   FontAttributes="Bold">
                                 <Label.FormattedText>
                                     <FormattedString>
-                                        <Span Text="{Binding Email}"/>
+                                        <Span Text="{Binding Status, StringFormat='({0})'}"
+                                              TextColor="Green"/>
                                         <Span Text=" "/>
-                                        <Span Text="{Binding ReasonForLeave, StringFormat='({0})'}"/>
+                                        <Span Text="{Binding Email}"
+                                              TextColor="Black"/>
                                     </FormattedString>
                                 </Label.FormattedText>
                             </Label>
+                            <Label 
+                               HorizontalOptions="Center"
+                               HorizontalTextAlignment="Center"
+                               Margin="8, 0, 8, 0"
+                                Text="{Binding Leave}"
+                                TextDecorations="Underline"/>
                             <Label HorizontalOptions="EndAndExpand"
                                    Margin="8"
                                    FontSize="11">

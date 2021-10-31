@@ -27,7 +27,7 @@ namespace TheAdminSolution.ViewModels
             }
             else if (Username == "AuthAdmin" && Password == "123456")
             {
-                await _navigationService.NavigateAsync("MainPage");
+                await _navigationService.NavigateAsync("NavigationPage/MainPage");
             }
             else
             {
