@@ -17,11 +17,13 @@ namespace TheAdminSolution.ViewModels
     public class LeavesPageViewModel : BindableBase, IPageLifecycleAware, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        public DelegateCommand RefreshCommand { get; set; }
         IDialogService _dialogService;
         public IList<Leaves> Leaves { get; set; }
         public LeavesPageViewModel(IDialogService dialogService)
         {
             _dialogService = dialogService;
+            RefreshCommand = new DelegateCommand(() => ViewAllLeaves());
             //Leaves = new List<Leaves>
             //{
             //    new Leaves{Email = "eeeadwdwdwdwdwd", LeaveType = "Test", ReasonForLeave = "tttwdwdwdwdwdwdwdwdwdwdwdwdwdwdwdwdwdwd", StartDate = DateTime.Now.ToString("dd/MM/yyyy"), EndDate = DateTime.Now.ToString("dd/MM/yyyy")},

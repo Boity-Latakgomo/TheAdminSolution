@@ -6,6 +6,12 @@
              x:Class="TheAdminSolution.Views.LeavesPage"
              Title="Leaves">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Refresh"
+                     Command="{Binding RefreshCommand}"
+                     Order="Primary"/>
+    </ContentPage.ToolbarItems>
+    
     <ListView ItemsSource="{Binding Leaves}"
               ItemSelected="ListView_ItemSelected"
               HasUnevenRows="True"

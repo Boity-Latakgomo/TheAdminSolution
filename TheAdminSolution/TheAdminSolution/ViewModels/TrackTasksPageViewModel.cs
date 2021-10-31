@@ -18,13 +18,15 @@ namespace TheAdminSolution.ViewModels
     public class TrackTasksPageViewModel : BindableBase, IPageLifecycleAware, INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
+        public DelegateCommand RefreshCommand { get; set; }
         IDialogService _dialogService;
         public IList<EmployeeTask> Tasks { get; set; }
         public TrackTasksPageViewModel(IDialogService dialogService)
         {
             _dialogService = dialogService;
+            RefreshCommand = new DelegateCommand(() => GetAllTasks());
             //Tasks = new List<EmployeeTask>();
-            
+
             //Tasks = new List<EmployeeTask>
             //{
             //    new EmployeeTask{Email = "edvfdvdvdvdvdvdbvdvbddbdffbgfhbfhfhffbfhffnbfbfbfgbfbfbfbee", Details = "fdgffsvsa", Title = "Title 1", Status = "Resolved"},

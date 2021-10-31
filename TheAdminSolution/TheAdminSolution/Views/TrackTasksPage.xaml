@@ -6,6 +6,12 @@
              x:Class="TheAdminSolution.Views.TrackTasksPage"
              Title="Track tasks">
 
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Refresh"
+                     Command="{Binding RefreshCommand}"
+                     Order="Primary"/>
+    </ContentPage.ToolbarItems>
+    
     <ListView ItemsSource="{Binding Tasks}"
               ItemSelected="ListView_ItemSelected"
               HasUnevenRows="True"
